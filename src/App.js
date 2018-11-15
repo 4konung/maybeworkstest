@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { PureComponent, Fragment } from 'react'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import PrivateRoute from './components/PrivateRoute'
+import { NotFound, LoginPage } from './pages'
+import routs, { getLinkByName } from './router'
+import { LOGIN_PAGE } from './constants'
 
-class App extends Component {
-  render() {
+class App extends PureComponent {
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Fragment>
+        <CssBaseline />
+        <Router>
+          <Switch>
+            <Route path={getLinkByName(LOGIN_PAGE)} component={LoginPage} />
+            {routs.map((route, idx) => <PrivateRoute key={idx} {...route} />)}
+            <Route component={NotFound} />
+          </Switch>
+        </Router>
+      </Fragment>
+    )
   }
 }
 
-export default App;
+export default App

@@ -1,44 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Требуется реализовать чат на веб-сокетах.
 
-## Available Scripts
+Используемые технологии Сервер обмена сообщений: websocket сервер (реализовать в рамках выбранных технологий/фреймворка на бэке) Бэкенд: js (node - express|koa) или php (laravel) Фронтенд html/css-фреймворк: twitter bootstrap или пакет material design (в случае выбора js-фреймфорка для фронтенда) Фронтенд js-фреймворк (не обязательно): angular, react или vue.js База данных: mysql или mongodb
 
-In the project directory, you can run:
+Использование внешних api (не обязательно):
 
-### `npm start`
+gravatar для загрузки аватара пользователя по его email
+авторизация через внешний сервис или соц.сеть
+Требования:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+обмен данными чата должен работать через веб-сокеты
+мгновенная регистрация (при авторизации, если пользователя в нашей бд не существует - создать)
+интерфейс должен быть респонсивным и изменяться под мобильное устройство
+внешний вид интерфейса на усмотрение разработчика
+администратор чата (пользователь с соответствующим свойством в бд), должен иметь возможность отключать (mute) и банить (ban) пользователя
+все пользователи чата должны видеть, кто сейчас онлайн. список должен динамически реагировать на вход/выход других участников
+если используется mysql, то структуру бд создать миграцями
+создать первого пользователя (админа) с произвольным логином и паролем (прислать логин и пароль с выполненным тз) через миграции (или фикстуры/сиды)
+ограничения сообщений - до 200 символов в 1 сообщении, 15 секунд между сообщениями одного пользователя
+зашедшему пользователю присваивается случайный цвет его ник-нейма и цвету сообщения (подобрать список цветов, чтобы текст не сливался с фоном)
+требование к ник-нейму - минимум 3 символа, запрет спец.символов
